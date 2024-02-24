@@ -70,7 +70,7 @@ export default function Home() {
               className="h-auto max-w-full rounded-lg"
               src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
               width={500}
-              height={500}
+              height={400}
               alt=""
             />
           </div>
