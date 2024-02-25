@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 import { useState } from "react";
 import Link from "next/link";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+//import { useRouter } from "next/router";
 
 import {
   Sheet,
@@ -12,9 +15,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { useRouter } from "next/navigation";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -28,30 +33,7 @@ export default function NavBar() {
           </a>
         </div>
         <div className="hidden md:flex items-center space-x-4">
-          <Sheet>
-            <Button asChild>
-              <SheetTrigger>AI</SheetTrigger>
-            </Button>
-
-            <SheetContent>
-              <SheetHeader>
-                <SheetTitle>Are you absolutely sure?</SheetTitle>
-                <SheetDescription>
-                  This action cannot be undone. This will permanently delete
-                  your account and remove your data from our servers.
-                </SheetDescription>
-              </SheetHeader>
-              <Button
-                onClick={() => {
-                  alert("clicked");
-                }}
-                className="bg-gray-700 mt-10"
-              >
-                show alert
-              </Button>
-            </SheetContent>
-          </Sheet>
-          <a href="#" className="text-white hover:bg-sky-950">
+          <a href="/" className="text-white hover:bg-sky-950">
             Home
           </a>
           <a href="#" className="text-white">
@@ -63,9 +45,18 @@ export default function NavBar() {
           <a href="#" className="text-white">
             Contact
           </a>
-          <Button asChild className="bg-gray-700">
-            <Link href="/login">Login</Link>
+          <Button
+            className="bg-gray-700"
+            onClick={() => {
+              router.push("/pages/login");
+            }}
+          >
+            Login
           </Button>
+          <Avatar>
+            <AvatarImage src="https://github.com/shadcn.png" />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
         </div>
         <div className="md:hidden">
           <button onClick={toggleMenu} className="text-white">
@@ -89,18 +80,6 @@ export default function NavBar() {
       {/* Mobile menu */}
       {isOpen && (
         <div className="md:hidden bg-gray-700 py-2">
-          <Sheet>
-            <SheetTrigger className="ml-10">AI</SheetTrigger>
-            <SheetContent>
-              <SheetHeader>
-                <SheetTitle>Are you absolutely sure?</SheetTitle>
-                <SheetDescription>
-                  This action cannot be undone. This will permanently delete
-                  your account and remove your data from our servers.
-                </SheetDescription>
-              </SheetHeader>
-            </SheetContent>
-          </Sheet>
           <a href="#" className="block text-white px-4 py-2">
             Home
           </a>
@@ -113,7 +92,14 @@ export default function NavBar() {
           <a href="#" className="block text-white px-4 py-2">
             Contact
           </a>
-          <Button className="bg-gray-700 ml-10">Login</Button>
+          <Button
+            className="bg-gray-900 ml-10"
+            onClick={() => {
+              router.push("/pages/login");
+            }}
+          >
+            Login
+          </Button>
         </div>
       )}
     </header>

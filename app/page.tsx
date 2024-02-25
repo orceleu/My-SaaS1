@@ -33,6 +33,7 @@ import {
 import imgcomp from "../public/img_micro2.jpg";
 import imgcomp2 from "../public/imgmicro.jpg";
 import imgcomp3 from "../public/imgrelais.jpg";
+import FloatinButton from "./component/FloatinButton";
 
 export default function Home() {
   return (
@@ -46,10 +47,10 @@ export default function Home() {
             <CardDescription>Card Description</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-2xl font-bold mb-4">Card Content</p>
+            <p className="leading-7 [&:not(:first-child)]:mt-6">Card Content</p>
           </CardContent>
           <CardFooter>
-            <p>Card Footer</p>
+            <p className="text-xl text-muted-foreground">Card Footer</p>
             <Select>
               <SelectTrigger className="w-[180px] ml-11">
                 <SelectValue placeholder="Theme" />
@@ -222,7 +223,7 @@ export default function Home() {
           </AccordionItem>
         </Accordion>
       </div>
-
+      <FloatinButton />
       <div className="flex w-full max-w-sm items-center space-x-2 mx-auto  mt-9 mb-11">
         <Input type="email" placeholder="Email" />
         <Button type="submit">Subscribe</Button>
