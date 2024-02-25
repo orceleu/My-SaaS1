@@ -2,6 +2,8 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { useState } from "react";
+import Link from "next/link";
+
 import {
   Sheet,
   SheetContent,
@@ -27,9 +29,10 @@ export default function NavBar() {
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <Sheet>
-            <SheetTrigger>
-              <Button>AI</Button>
-            </SheetTrigger>
+            <Button asChild>
+              <SheetTrigger>AI</SheetTrigger>
+            </Button>
+
             <SheetContent>
               <SheetHeader>
                 <SheetTitle>Are you absolutely sure?</SheetTitle>
@@ -60,7 +63,9 @@ export default function NavBar() {
           <a href="#" className="text-white">
             Contact
           </a>
-          <Button className="bg-gray-700">Login</Button>
+          <Button asChild className="bg-gray-700">
+            <Link href="/login">Login</Link>
+          </Button>
         </div>
         <div className="md:hidden">
           <button onClick={toggleMenu} className="text-white">
@@ -85,9 +90,7 @@ export default function NavBar() {
       {isOpen && (
         <div className="md:hidden bg-gray-700 py-2">
           <Sheet>
-            <SheetTrigger>
-              <Button>AI</Button>
-            </SheetTrigger>
+            <SheetTrigger className="ml-10">AI</SheetTrigger>
             <SheetContent>
               <SheetHeader>
                 <SheetTitle>Are you absolutely sure?</SheetTitle>
@@ -110,7 +113,7 @@ export default function NavBar() {
           <a href="#" className="block text-white px-4 py-2">
             Contact
           </a>
-          <Button>Login</Button>
+          <Button className="bg-gray-700 ml-10">Login</Button>
         </div>
       )}
     </header>
