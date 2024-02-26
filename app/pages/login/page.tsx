@@ -6,8 +6,9 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 export default function Login() {
   return (
-    <form className="max-w-sm mx-auto mt-10">
+    <form className="max-w-sm mx-auto ">
       <div>
+        <br />
         <div className="mb-5">
           <Label htmlFor="email">Your email address</Label>
 

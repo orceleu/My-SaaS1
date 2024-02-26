@@ -36,14 +36,72 @@ import imgcomp2 from "../public/imgmicro.jpg";
 import imgcomp3 from "../public/imgrelais.jpg";
 import FloatinButton from "./component/FloatinButton";
 import ComboBox from "./component/ComboBox";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main>
-      <div className="mx-auto max-w-lg mt-10 ml-5 mr-5">
+    <main className="bg-slate-800  ">
+      <div className="bg-slate-950  ">
+        <div className="ml-5 mr-5 ">
+          <br />
+          <br />
+          <p className="text-center text-white text-xl font-semibold">
+            save time with AI optimized engine search video & increase your
+            concentration
+          </p>
+          <p className="mx-auto max-w-lg text-center text-white text-xl mt-5 font-semibold">
+            Text/video/AI assistant
+          </p>
+          <p className="mx-auto max-w-lg text-center text-white text-xl mt-5 font-semibold ">
+            New High quality contents every month and recent video update within
+            9 month
+          </p>
+          <p className="mx-auto max-w-lg text-center text-white text-xl  mt-5 font-semibold">
+            world of IT/tech knowlege
+          </p>
+          <p className="mx-auto max-w-lg text-center text-white text-xl  mt-5  font-semibold">
+            more than 1500 student are already menbers
+          </p>
+        </div>
+        <div className="flex justify-center mt-8 ml-15 mr-15 ">
+          <Button asChild size="lg" className="mb-10 bg-slate-400">
+            <Link href="pages/login">Get started</Link>
+          </Button>
+        </div>
+      </div>
+
+      <br />
+      <br />
+      <Carousel
+        opts={{
+          align: "start",
+        }}
+        className="mx-auto w-full max-w-sm"
+      >
+        <CarouselContent>
+          {Array.from({ length: 5 }).map((_, index) => (
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <div className="p-1">
+                <Card>
+                  <CardContent className="flex aspect-square items-center justify-center p-6">
+                    <span className="text-3xl font-semibold">{index + 1}</span>
+                  </CardContent>
+                </Card>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+
+      <div className=" mt-10 ml-5 mr-5">
         <ComboBox />
       </div>
-      <Tabs defaultValue="account" className="w-auto ml-5 mr-5 mt-10">
+      <Tabs
+        defaultValue="account"
+        className="w-auto ml-5 mr-5 mt-10 bg-slate-800"
+      >
         <TabsList>
           <TabsTrigger value="account">VIDEO</TabsTrigger>
           <TabsTrigger value="password">DOC</TabsTrigger>
@@ -97,29 +155,31 @@ export default function Home() {
     ];
     return (
       <>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+        <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {youtubIdVideo.map((videoId) => (
-            <Card key={videoId}>
+            <Card key={videoId} className="bg-slate-800">
               <CardHeader>
                 <iframe
                   key={videoId}
                   width="mx-auto"
-                  height="mx-auto"
+                  height={300}
                   src={`https://www.youtube.com/embed/${videoId}`}
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 ></iframe>
-                <CardTitle>Card Title</CardTitle>
+                <CardTitle>
+                  <p className="text-white">Card Title</p>
+                </CardTitle>
                 <CardDescription>Card Description</CardDescription>
               </CardHeader>
 
               <CardFooter>
-                <Button>Read</Button>
+                <Button className="text-white bg-slate-400">Read</Button>
               </CardFooter>
             </Card>
           ))}
         </div>
-        <Carousel className="mx-auto max-w-sm mt-9">
+        <Carousel className="mx-auto max-w-sm mt-9 bg-slate-800">
           <CarouselContent>
             {imgCaroussel.map((imageCaroussel1) => (
               <CarouselItem key={imageCaroussel1.id}>
@@ -137,18 +197,27 @@ export default function Home() {
           <CarouselNext />
         </Carousel>
 
-        <div className="mx-auto max-w-sm mb-10">
+        <div className="mx-auto max-w-sm mb-10 bg-slate-800">
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
-              <AccordionTrigger>Is it accessible?</AccordionTrigger>
+              <AccordionTrigger>
+                {" "}
+                <p className="text-white">Is it accessible?</p>
+              </AccordionTrigger>
               <AccordionContent>
-                Yes. It adheres to the WAI-ARIA design pattern.
+                <p className="text-white">
+                  Yes. It adheres to the WAI-ARIA design pattern.
+                </p>
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
-              <AccordionTrigger>Is it accessible?</AccordionTrigger>
+              <AccordionTrigger>
+                <p className="text-white"> Is it accessible?</p>
+              </AccordionTrigger>
               <AccordionContent>
-                Yes. It adheres to the WAI-ARIA design pattern.
+                <p className="text-white">
+                  Yes. It adheres to the WAI-ARIA design pattern.
+                </p>
               </AccordionContent>
             </AccordionItem>
           </Accordion>
