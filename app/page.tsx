@@ -99,7 +99,7 @@ export default function Home() {
       <>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
           {youtubIdVideo.map((videoId) => (
-            <Card>
+            <Card key={videoId}>
               <CardHeader>
                 <iframe
                   key={videoId}
@@ -122,7 +122,7 @@ export default function Home() {
         <Carousel className="mx-auto max-w-sm mt-9">
           <CarouselContent>
             {imgCaroussel.map((imageCaroussel1) => (
-              <CarouselItem>
+              <CarouselItem key={imageCaroussel1.id}>
                 <Image
                   key={imageCaroussel1.id}
                   src={imageCaroussel1.img}
