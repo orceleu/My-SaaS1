@@ -33,17 +33,21 @@ export default function NavBar() {
           </a>
         </div>
         <div className="hidden md:flex items-center space-x-4">
-          <a href="/" className="text-white hover:bg-sky-950">
+          <a href="/" className="text-white hover:text-sky-200">
             Home
           </a>
-          <a href="#" className="text-white">
+          <a href="#" className="text-white hover:text-sky-200">
             About
           </a>
-          <a href="#" className="text-white">
+          <a href="#" className="text-white hover:text-sky-200">
             Services
           </a>
-          <a href="#" className="text-white">
+          <a href="#" className="text-white hover:text-sky-200">
             Contact
+          </a>
+
+          <a href="/signup" className="text-blue-200">
+            sign up
           </a>
           <Button
             className="bg-gray-700"
@@ -79,18 +83,22 @@ export default function NavBar() {
       </nav>
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-gray-700 py-2">
-          <a href="#" className="block text-white px-4 py-2">
+        <div className="md:hidden bg-gray-700 py-2 ">
+          <a href="#" className="block text-white px-4 py-2 hover:text-sky-200">
             Home
           </a>
-          <a href="#" className="block text-white px-4 py-2">
+          <a href="#" className="block text-white px-4 py-2 hover:text-sky-200">
             About
           </a>
-          <a href="#" className="block text-white px-4 py-2">
+          <a href="#" className="block text-white px-4 py-2 hover:text-sky-200">
             Services
           </a>
-          <a href="#" className="block text-white px-4 py-2">
+          <a href="#" className="block text-white px-4 py-2 hover:text-sky-200">
             Contact
+          </a>
+
+          <a href="/signup" className="text-blue-200 ml-5">
+            sign up
           </a>
           <Button
             className="bg-gray-900 ml-10"
