@@ -80,7 +80,6 @@ export default function Home() {
       "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg",
       "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg",
       "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg",
-      "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
     ];
     const imgCaroussel = [
       {
@@ -97,7 +96,7 @@ export default function Home() {
       },
     ];
     return (
-      <div>
+      <>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
           {youtubIdVideo.map((videoId) => (
             <Card>
@@ -154,7 +153,7 @@ export default function Home() {
             </AccordionItem>
           </Accordion>
         </div>
-      </div>
+      </>
     );
   }
 }
