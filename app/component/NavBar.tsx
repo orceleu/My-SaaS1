@@ -87,7 +87,7 @@ export default function NavBar() {
       {/* Mobile menu */}
       {isOpen && (
         <div className="md:hidden bg-white py-2 ">
-          <a href="#" className="block px-10 py-2 hover:text-sky-200">
+          <a href="/" className="block px-10 py-2 hover:text-sky-200">
             Home
           </a>
           <a href="#" className="block  px-10 py-2 hover:text-sky-200">

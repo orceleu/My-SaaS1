@@ -67,9 +67,9 @@ export default function Home() {
     },
   ];
   return (
-    <main>
+    <main className="ml-2 mr-2">
       <div>
-        <div className="ml-5 mr-5 ">
+        <div>
           <br />
           <br />
           <br />
@@ -133,46 +133,47 @@ export default function Home() {
           </CarouselContent>
           <CarouselPrevious />
           <CarouselNext />
-        </Carousel>{" "}
+        </Carousel>
         <br />
-        <div className="flex justify-center">
-          <div className="flex space-x-4 ml-5 mr-5">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-              Butt
-            </button>
-            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-              Bu
-            </button>
-            <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+        <div className="flex justify-center ml-5 mr-5">
+          <div className="flex space-x-4 ">
+            <Button className="bg-blue-500 hover:bg-blue-700 text-white font-bold ">
               B
-            </button>
+            </Button>
+            <Button className="bg-green-500 hover:bg-green-700 text-white font-bold ">
+              B
+            </Button>
+            <Button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold">
+              B
+            </Button>
             <ComboBox />
           </div>
         </div>
         <br />
       </div>
 
-      <div className=" mt-10 ml-1 mr-1"></div>
-      <Tabs defaultValue="account" className="w-auto ml-1 mr-1 mt-7">
-        <TabsList>
-          <TabsTrigger value="account">VIDEO</TabsTrigger>
-          <TabsTrigger value="password">DOC</TabsTrigger>
-        </TabsList>
-        <TabsContent value="account">{divVideo()}</TabsContent>
-        <TabsContent
-          value="password"
-          className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
-        >
-          {textCard.map((txt) => (
-            <Card key={txt.id} className="ml-1 mr-1">
-              <CardDescription>{txt.desc}</CardDescription>
-              <CardFooter>
-                <Button>Learn more</Button>
-              </CardFooter>
-            </Card>
-          ))}
-        </TabsContent>
-      </Tabs>
+      <div className=" flex justify-center">
+        <Tabs defaultValue="account" className="w-auto ml-1 mr-1 mt-7">
+          <TabsList>
+            <TabsTrigger value="account">VIDEO</TabsTrigger>
+            <TabsTrigger value="password">DOC</TabsTrigger>
+          </TabsList>
+          <TabsContent value="account">{divVideo()}</TabsContent>
+          <TabsContent
+            value="password"
+            className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+          >
+            {textCard.map((txt) => (
+              <Card key={txt.id} className="ml-1 mr-1">
+                <CardDescription>{txt.desc}</CardDescription>
+                <CardFooter>
+                  <Button>Learn more</Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </TabsContent>
+        </Tabs>
+      </div>
 
       <FloatinButton />
       <div className="flex w-full max-w-sm items-center space-x-2 mx-auto  mt-9 mb-11">
@@ -256,6 +257,7 @@ export default function Home() {
                   src={`https://www.youtube.com/embed/${videoId}`}
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
                 ></iframe>
 
                 <CardDescription>Card Description</CardDescription>
@@ -269,6 +271,35 @@ export default function Home() {
             </Card>
           ))}
         </div>
+        <div className="mx-auto max-w-sm mt-9">
+          <p className="text-3xl font-semibold mt-10 text-center">
+            For who is this?
+          </p>
+          <ul className="text-lg font-thin text-center">
+            <li>student</li>
+            <li>self learner</li>
+            <li> etc</li>
+            <li>etc</li>
+            <li>etc</li>
+          </ul>
+        </div>
+        <Card className="mx-auto max-w-sm mt-9">
+          <p className="text-3xl font-semibold mt-10 text-center text-emerald-700">
+            Pricing
+          </p>
+          <p className="ml-10 font-thin text-md">8$/month</p>
+          <ul className="text-lg font-thin text-center">
+            <li>*unlimided access</li>
+            <li>*AI tools</li>
+            <li> *take note</li>
+            <li>etc</li>
+            <li>etc</li>
+          </ul>
+          <div className="flex justify-center">
+            <Button className="bg-emerald-700">Get access</Button>
+          </div>
+          <br />
+        </Card>
         <Carousel className="mx-auto max-w-sm mt-9">
           <CarouselContent>
             {imgCaroussel.map((imageCaroussel1) => (
