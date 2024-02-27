@@ -6,7 +6,6 @@ export default function PageNotFound() {
         <h3>la page nexiste pas </h3>
         <Link href="/">go to Home?</Link>
       </div>
-      ;
     </div>
   );
 }

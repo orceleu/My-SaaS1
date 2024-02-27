@@ -37,6 +37,7 @@ import imgcomp3 from "../public/imgrelais.jpg";
 import FloatinButton from "./component/FloatinButton";
 import ComboBox from "./component/ComboBox";
 import Link from "next/link";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   const textContent = ["text1", "text2", "text3", "text4", "text5", "text6"];
@@ -66,9 +67,24 @@ export default function Home() {
       desc: "what s SQL",
     },
   ];
+
+  const imgCaroussel = [
+    {
+      id: "1",
+      img: imgcomp,
+    },
+    {
+      id: "2",
+      img: imgcomp2,
+    },
+    {
+      id: "3",
+      img: imgcomp3,
+    },
+  ];
   return (
-    <main className="ml-2 mr-2">
-      <div>
+    <main>
+      <div className="bg-emerald-50">
         <div>
           <br />
           <br />
@@ -102,9 +118,9 @@ export default function Home() {
           <Button
             asChild
             size="lg"
-            className="mb-10 bg-slate-400 hover:bg-slate-500"
+            className="mb-10 bg-emerald-700 hover:bg-emerald-800"
           >
-            <Link href="pages/login">Get started</Link>
+            <Link href="pages/signup">Get started</Link>
           </Button>
         </div>
         <Carousel
@@ -123,9 +139,6 @@ export default function Home() {
                         {index + 1}
                       </span>
                     </CardContent>
-                    <CardFooter>
-                      <Button>click</Button>
-                    </CardFooter>
                   </Card>
                 </div>
               </CarouselItem>
@@ -137,15 +150,6 @@ export default function Home() {
         <br />
         <div className="flex justify-center ml-5 mr-5">
           <div className="flex space-x-4 ">
-            <Button className="bg-blue-500 hover:bg-blue-700 text-white font-bold ">
-              B
-            </Button>
-            <Button className="bg-green-500 hover:bg-green-700 text-white font-bold ">
-              B
-            </Button>
-            <Button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold">
-              B
-            </Button>
             <ComboBox />
           </div>
         </div>
@@ -163,51 +167,142 @@ export default function Home() {
             value="password"
             className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
           >
-            {textCard.map((txt) => (
-              <Card key={txt.id} className="ml-1 mr-1">
-                <CardDescription>{txt.desc}</CardDescription>
-                <CardFooter>
-                  <Button>Learn more</Button>
-                </CardFooter>
-              </Card>
-            ))}
+            {divCardText()}
           </TabsContent>
         </Tabs>
       </div>
 
       <FloatinButton />
-      <div className="flex w-full max-w-sm items-center space-x-2 mx-auto  mt-9 mb-11">
-        <Input type="email" placeholder="Email" />
-        <Button type="submit">Subscribe</Button>
+
+      <div className="mx-auto max-w-sm mt-9 ">
+        <p className="text-3xl font-semibold mt-10 text-center">
+          For who is this?
+        </p>
+        <ul className="text-lg font-thin text-center">
+          <li>student</li>
+          <li>self learner</li>
+          <li> etc</li>
+          <li>etc</li>
+          <li>etc</li>
+        </ul>
+      </div>
+      <Card className="mx-auto max-w-sm mt-9">
+        <p className="text-3xl font-semibold mt-10 text-center text-emerald-700">
+          Pricing
+        </p>
+        <p className=" font-thin text-md text-center text-fuchsia-700">
+          8$/month
+        </p>
+        <Separator className="my-4" />
+        <ul className="text-lg font-thin text-center">
+          <li>*unlimided access</li>
+          <li>*AI tools</li>
+          <li> *take note</li>
+          <li>etc</li>
+          <li>etc</li>
+        </ul>
+        <div className="flex justify-center">
+          <Button asChild className="bg-emerald-700">
+            <Link href="/pages/signup">Get access</Link>
+          </Button>
+        </div>
+        <br />
+      </Card>
+
+      <Carousel className="mx-auto max-w-sm mt-9">
+        <CarouselContent>
+          {imgCaroussel.map((imageCaroussel1) => (
+            <CarouselItem key={imageCaroussel1.id}>
+              <Image
+                key={imageCaroussel1.id}
+                src={imageCaroussel1.img}
+                width={500}
+                height={500}
+                alt="Picture of the author"
+              />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+
+      <div className="mx-auto max-w-sm mb-10 ">
+        <Accordion type="single" collapsible>
+          <AccordionItem value="item-1">
+            <AccordionTrigger>Is it accessible?</AccordionTrigger>
+            <AccordionContent>
+              Yes. It adheres to the WAI-ARIA design pattern.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>Is it accessible?</AccordionTrigger>
+            <AccordionContent>
+              Yes. It adheres to the WAI-ARIA design pattern.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-3">
+            <AccordionTrigger>Is it accessible?</AccordionTrigger>
+            <AccordionContent>
+              Yes. It adheres to the WAI-ARIA design pattern.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-4">
+            <AccordionTrigger>Is it accessible?</AccordionTrigger>
+            <AccordionContent>
+              Yes. It adheres to the WAI-ARIA design pattern.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </div>
       <br />
       <br />
       <br />
-      <div className="bg-white text-black py-4">
-        <div className="container mx-auto px-4">
-          <footer className="flex flex-col lg:flex-row justify-between items-center">
-            <p className="text-sm lg:order-2">
-              &copy; 2024 Mon Entreprise. Tous droits réservés.
-            </p>
-            <div className="flex lg:order-1 lg:justify-center lg:mt-0 mt-4">
-              <a href="#" className="text-sm hover:text-gray-400">
-                Accueil
-              </a>
-              <a href="#" className="text-sm hover:text-gray-400 ml-4">
-                À propos
-              </a>
-              <a href="#" className="text-sm hover:text-gray-400 ml-4">
-                Services
-              </a>
-              <a href="#" className="text-sm hover:text-gray-400 ml-4">
-                Contact
-              </a>
-            </div>
-          </footer>
-        </div>
+      <div className="flex w-full max-w-sm items-center space-x-2 mx-auto  mt-9 mb-11">
+        <Input type="email" placeholder="Email" />
+        <Button type="submit" className="bg-emerald-700 hover:bg-emerald-800">
+          Subscribe
+        </Button>
+      </div>
+      <br />
+      <Separator className="my-4" />
+      <div className="container mx-auto px-4">
+        <footer className="flex flex-col lg:flex-row justify-between items-center">
+          <p className="text-sm lg:order-2">
+            &copy; 2024 Mon Entreprise. Tous droits réservés.
+          </p>
+          <div className="flex lg:order-1 lg:justify-center lg:mt-0 mt-4">
+            <Link href="/pages/signup" className="text-sm hover:text-gray-400">
+              sign up
+            </Link>
+            <Link
+              href="/pages/login"
+              className="text-sm hover:text-gray-400 ml-4"
+            >
+              login
+            </Link>
+            <Link href="#" className="text-sm hover:text-gray-400 ml-4">
+              pricing
+            </Link>
+            <Link href="#" className="text-sm hover:text-gray-400 ml-4">
+              term & condition
+            </Link>
+          </div>
+        </footer>
       </div>
     </main>
   );
+
+  function divCardText() {
+    return textCard.map((txt) => (
+      <Card key={txt.id} className="ml-1 mr-1">
+        <CardDescription>{txt.desc}</CardDescription>
+        <CardFooter>
+          <Button className="bg-emerald-700">Learn more</Button>
+        </CardFooter>
+      </Card>
+    ));
+  }
 
   function divVideo() {
     const youtubIdVideo = [
@@ -230,20 +325,7 @@ export default function Home() {
       "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg",
       "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg",
     ];
-    const imgCaroussel = [
-      {
-        id: "1",
-        img: imgcomp,
-      },
-      {
-        id: "2",
-        img: imgcomp2,
-      },
-      {
-        id: "3",
-        img: imgcomp3,
-      },
-    ];
+
     return (
       <>
         <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -264,87 +346,12 @@ export default function Home() {
               </CardHeader>
 
               <CardFooter>
-                <Button className="text-white bg-slate-400 hover:bg-slate-500">
+                <Button className="text-white bg-emerald-700 hover:bg-emerald-800">
                   Read
                 </Button>
               </CardFooter>
             </Card>
           ))}
-        </div>
-        <div className="mx-auto max-w-sm mt-9">
-          <p className="text-3xl font-semibold mt-10 text-center">
-            For who is this?
-          </p>
-          <ul className="text-lg font-thin text-center">
-            <li>student</li>
-            <li>self learner</li>
-            <li> etc</li>
-            <li>etc</li>
-            <li>etc</li>
-          </ul>
-        </div>
-        <Card className="mx-auto max-w-sm mt-9">
-          <p className="text-3xl font-semibold mt-10 text-center text-emerald-700">
-            Pricing
-          </p>
-          <p className="ml-10 font-thin text-md">8$/month</p>
-          <ul className="text-lg font-thin text-center">
-            <li>*unlimided access</li>
-            <li>*AI tools</li>
-            <li> *take note</li>
-            <li>etc</li>
-            <li>etc</li>
-          </ul>
-          <div className="flex justify-center">
-            <Button className="bg-emerald-700">Get access</Button>
-          </div>
-          <br />
-        </Card>
-        <Carousel className="mx-auto max-w-sm mt-9">
-          <CarouselContent>
-            {imgCaroussel.map((imageCaroussel1) => (
-              <CarouselItem key={imageCaroussel1.id}>
-                <Image
-                  key={imageCaroussel1.id}
-                  src={imageCaroussel1.img}
-                  width={500}
-                  height={500}
-                  alt="Picture of the author"
-                />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-
-        <div className="mx-auto max-w-sm mb-10 ">
-          <Accordion type="single" collapsible>
-            <AccordionItem value="item-1">
-              <AccordionTrigger>Is it accessible?</AccordionTrigger>
-              <AccordionContent>
-                Yes. It adheres to the WAI-ARIA design pattern.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-2">
-              <AccordionTrigger>Is it accessible?</AccordionTrigger>
-              <AccordionContent>
-                Yes. It adheres to the WAI-ARIA design pattern.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-3">
-              <AccordionTrigger>Is it accessible?</AccordionTrigger>
-              <AccordionContent>
-                Yes. It adheres to the WAI-ARIA design pattern.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-4">
-              <AccordionTrigger>Is it accessible?</AccordionTrigger>
-              <AccordionContent>
-                Yes. It adheres to the WAI-ARIA design pattern.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
         </div>
       </>
     );

@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card } from "@/components/ui/card";
 
-export default function Login() {
+export default function page() {
   return (
     <>
       <br />
@@ -15,7 +15,7 @@ export default function Login() {
       <Card className="max-w-sm  mx-auto shadow-md ">
         <br />
         <br />
-        <p className="ml-10 font-bold">Welcome back</p>
+        <p className="ml-10 font-bold">Create your account</p>
         <form>
           <div className="mx-10">
             <br />
@@ -36,7 +36,7 @@ export default function Login() {
               type="submit"
               className="bg-emerald-700 hover:bg-emerald-800"
             >
-              Login
+              Register
             </Button>
           </div>
         </form>
