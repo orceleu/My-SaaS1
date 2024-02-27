@@ -39,81 +39,171 @@ import ComboBox from "./component/ComboBox";
 import Link from "next/link";
 
 export default function Home() {
+  const textContent = ["text1", "text2", "text3", "text4", "text5", "text6"];
+  const textCard = [
+    {
+      id: "1",
+      desc: "what s SQL",
+    },
+    {
+      id: "2",
+      desc: "what s SQL",
+    },
+    {
+      id: "3",
+      desc: "what s SQL",
+    },
+    {
+      id: "4",
+      desc: "what s SQL",
+    },
+    {
+      id: "5",
+      desc: "what s SQL",
+    },
+    {
+      id: "6",
+      desc: "what s SQL",
+    },
+  ];
   return (
-    <main className="bg-slate-800  ">
-      <div className="bg-slate-950  ">
+    <main>
+      <div>
         <div className="ml-5 mr-5 ">
           <br />
           <br />
-          <p className="text-center text-white text-xl font-semibold">
+          <br />
+          <br />
+          <br />
+          <br />
+          <p className="text-center font-bold     text-lg md:text-xl lg:text-2xl xl:text-3xl">
+            <span className="text-blue-500">Update</span> Your skill in tech
+          </p>
+          <p className="text-center text-md md:text-xl lg:text-2xl xl:text-2xl font-semibold mt-5">
             save time with AI optimized engine search video & increase your
             concentration
           </p>
-          <p className="mx-auto max-w-lg text-center text-white text-xl mt-5 font-semibold">
+          <p className="mx-auto max-w-lg text-center  text-md md:text-xl lg:text-xl xl:text-2xl mt-5 font-semibold">
             Text/video/AI assistant
           </p>
-          <p className="mx-auto max-w-lg text-center text-white text-xl mt-5 font-semibold ">
+          <p className="mx-auto max-w-lg text-center   text-md md:text-xl lg:text-xl xl:text-2xl mt-5 font-semibold ">
             New High quality contents every month and recent video update within
             9 month
           </p>
-          <p className="mx-auto max-w-lg text-center text-white text-xl  mt-5 font-semibold">
+          <p className="mx-auto max-w-lg text-center   text-md md:text-xl lg:text-xl xl:text-2xl  mt-5 font-semibold">
             world of IT/tech knowlege
           </p>
-          <p className="mx-auto max-w-lg text-center text-white text-xl  mt-5  font-semibold">
-            more than 1500 student are already menbers
+          <p className="mx-auto max-w-lg text-center   text-md md:text-xl lg:text-xl xl:text-2xl  mt-5  font-semibold">
+            more than <span className="text-red-500">1500 student </span>are
+            already menbers
           </p>
         </div>
         <div className="flex justify-center mt-8 ml-15 mr-15 ">
-          <Button asChild size="lg" className="mb-10 bg-slate-400">
+          <Button
+            asChild
+            size="lg"
+            className="mb-10 bg-slate-400 hover:bg-slate-500"
+          >
             <Link href="pages/login">Get started</Link>
           </Button>
         </div>
+        <Carousel
+          opts={{
+            align: "start",
+          }}
+          className="mx-auto w-full max-w-sm"
+        >
+          <CarouselContent>
+            {textContent.map((_, index) => (
+              <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/2">
+                <div className="p-1">
+                  <Card>
+                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                      <span className="text-3xl font-semibold">
+                        {index + 1}
+                      </span>
+                    </CardContent>
+                    <CardFooter>
+                      <Button>click</Button>
+                    </CardFooter>
+                  </Card>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>{" "}
+        <br />
+        <div className="flex justify-center">
+          <div className="flex space-x-4 ml-5 mr-5">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              Butt
+            </button>
+            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+              Bu
+            </button>
+            <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+              B
+            </button>
+            <ComboBox />
+          </div>
+        </div>
+        <br />
       </div>
 
-      <br />
-      <br />
-      <Carousel
-        opts={{
-          align: "start",
-        }}
-        className="mx-auto w-full max-w-sm"
-      >
-        <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-              <div className="p-1">
-                <Card>
-                  <CardContent className="flex aspect-square items-center justify-center p-6">
-                    <span className="text-3xl font-semibold">{index + 1}</span>
-                  </CardContent>
-                </Card>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
-
-      <div className=" mt-10 ml-5 mr-5">
-        <ComboBox />
-      </div>
-      <Tabs
-        defaultValue="account"
-        className="w-auto ml-5 mr-5 mt-10 bg-slate-800"
-      >
+      <div className=" mt-10 ml-1 mr-1"></div>
+      <Tabs defaultValue="account" className="w-auto ml-1 mr-1 mt-7">
         <TabsList>
           <TabsTrigger value="account">VIDEO</TabsTrigger>
           <TabsTrigger value="password">DOC</TabsTrigger>
         </TabsList>
         <TabsContent value="account">{divVideo()}</TabsContent>
-        <TabsContent value="password">Change your password here.</TabsContent>
+        <TabsContent
+          value="password"
+          className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+        >
+          {textCard.map((txt) => (
+            <Card key={txt.id} className="ml-1 mr-1">
+              <CardDescription>{txt.desc}</CardDescription>
+              <CardFooter>
+                <Button>Learn more</Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </TabsContent>
       </Tabs>
 
       <FloatinButton />
       <div className="flex w-full max-w-sm items-center space-x-2 mx-auto  mt-9 mb-11">
         <Input type="email" placeholder="Email" />
         <Button type="submit">Subscribe</Button>
+      </div>
+      <br />
+      <br />
+      <br />
+      <div className="bg-white text-black py-4">
+        <div className="container mx-auto px-4">
+          <footer className="flex flex-col lg:flex-row justify-between items-center">
+            <p className="text-sm lg:order-2">
+              &copy; 2024 Mon Entreprise. Tous droits réservés.
+            </p>
+            <div className="flex lg:order-1 lg:justify-center lg:mt-0 mt-4">
+              <a href="#" className="text-sm hover:text-gray-400">
+                Accueil
+              </a>
+              <a href="#" className="text-sm hover:text-gray-400 ml-4">
+                À propos
+              </a>
+              <a href="#" className="text-sm hover:text-gray-400 ml-4">
+                Services
+              </a>
+              <a href="#" className="text-sm hover:text-gray-400 ml-4">
+                Contact
+              </a>
+            </div>
+          </footer>
+        </div>
       </div>
     </main>
   );
@@ -157,29 +247,29 @@ export default function Home() {
       <>
         <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {youtubIdVideo.map((videoId) => (
-            <Card key={videoId} className="bg-slate-800">
+            <Card key={videoId}>
               <CardHeader>
                 <iframe
                   key={videoId}
                   width="mx-auto"
-                  height={300}
+                  height="mx-auto"
                   src={`https://www.youtube.com/embed/${videoId}`}
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 ></iframe>
-                <CardTitle>
-                  <p className="text-white">Card Title</p>
-                </CardTitle>
+
                 <CardDescription>Card Description</CardDescription>
               </CardHeader>
 
               <CardFooter>
-                <Button className="text-white bg-slate-400">Read</Button>
+                <Button className="text-white bg-slate-400 hover:bg-slate-500">
+                  Read
+                </Button>
               </CardFooter>
             </Card>
           ))}
         </div>
-        <Carousel className="mx-auto max-w-sm mt-9 bg-slate-800">
+        <Carousel className="mx-auto max-w-sm mt-9">
           <CarouselContent>
             {imgCaroussel.map((imageCaroussel1) => (
               <CarouselItem key={imageCaroussel1.id}>
@@ -197,27 +287,30 @@ export default function Home() {
           <CarouselNext />
         </Carousel>
 
-        <div className="mx-auto max-w-sm mb-10 bg-slate-800">
+        <div className="mx-auto max-w-sm mb-10 ">
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
-              <AccordionTrigger>
-                {" "}
-                <p className="text-white">Is it accessible?</p>
-              </AccordionTrigger>
+              <AccordionTrigger>Is it accessible?</AccordionTrigger>
               <AccordionContent>
-                <p className="text-white">
-                  Yes. It adheres to the WAI-ARIA design pattern.
-                </p>
+                Yes. It adheres to the WAI-ARIA design pattern.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
-              <AccordionTrigger>
-                <p className="text-white"> Is it accessible?</p>
-              </AccordionTrigger>
+              <AccordionTrigger>Is it accessible?</AccordionTrigger>
               <AccordionContent>
-                <p className="text-white">
-                  Yes. It adheres to the WAI-ARIA design pattern.
-                </p>
+                Yes. It adheres to the WAI-ARIA design pattern.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger>Is it accessible?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It adheres to the WAI-ARIA design pattern.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-4">
+              <AccordionTrigger>Is it accessible?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It adheres to the WAI-ARIA design pattern.
               </AccordionContent>
             </AccordionItem>
           </Accordion>

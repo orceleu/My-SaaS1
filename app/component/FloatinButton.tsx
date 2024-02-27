@@ -12,10 +12,10 @@ import React from "react";
 //import { ChevronRightIcon } from "@radix-ui/react-icons"
 export default function FloatinButton() {
   return (
-    <div className="fixed bottom-10 right-7">
+    <div className="fixed bottom-10 right-7 shadow-md">
       <Sheet>
-        <Button asChild variant="outline" size="default">
-          <SheetTrigger>AI assitant</SheetTrigger>
+        <Button asChild variant="outline" size="icon">
+          <SheetTrigger>AI </SheetTrigger>
         </Button>
 
         <SheetContent>

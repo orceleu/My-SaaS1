@@ -25,24 +25,24 @@ export default function NavBar() {
     setIsOpen(!isOpen);
   };
   return (
-    <header className="bg-gray-800 py-4">
+    <header className="bg-white  p-4 fixed top-0 left-0 right-0 z-50 shadow-sm">
       <nav className="container mx-auto flex items-center justify-between">
         <div className="flex items-center">
-          <a href="#" className="text-white font-bold text-lg">
+          <a href="#" className="font-bold text-lg">
             MyWebsite
           </a>
         </div>
         <div className="hidden md:flex items-center space-x-4">
-          <a href="/" className="text-white hover:text-sky-200">
+          <a href="/" className=" hover:text-sky-200">
             Home
           </a>
-          <a href="#" className="text-white hover:text-sky-200">
+          <a href="#" className=" hover:text-sky-200">
             About
           </a>
-          <a href="#" className="text-white hover:text-sky-200">
+          <a href="#" className=" hover:text-sky-200">
             Services
           </a>
-          <a href="#" className="text-white hover:text-sky-200">
+          <a href="#" className=" hover:text-sky-200">
             Contact
           </a>
 
@@ -50,7 +50,7 @@ export default function NavBar() {
             sign up
           </a>
           <Button
-            className="bg-gray-700"
+            className="bg-slate-400 hover:bg-slate-500"
             onClick={() => {
               router.push("/pages/login");
             }}
@@ -63,7 +63,10 @@ export default function NavBar() {
           </Avatar>
         </div>
         <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-white">
+          <button
+            onClick={toggleMenu}
+            className="text-black hover:text-slate-500"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -83,17 +86,17 @@ export default function NavBar() {
       </nav>
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-gray-700 py-2 ">
-          <a href="#" className="block text-white px-4 py-2 hover:text-sky-200">
+        <div className="md:hidden bg-white py-2 ">
+          <a href="#" className="block px-10 py-2 hover:text-sky-200">
             Home
           </a>
-          <a href="#" className="block text-white px-4 py-2 hover:text-sky-200">
+          <a href="#" className="block  px-10 py-2 hover:text-sky-200">
             About
           </a>
-          <a href="#" className="block text-white px-4 py-2 hover:text-sky-200">
+          <a href="#" className="block  px-10 py-2 hover:text-sky-200">
             Services
           </a>
-          <a href="#" className="block text-white px-4 py-2 hover:text-sky-200">
+          <a href="#" className="block px-10 py-2 hover:text-sky-200">
             Contact
           </a>
 
@@ -101,7 +104,7 @@ export default function NavBar() {
             sign up
           </a>
           <Button
-            className="bg-gray-900 ml-10"
+            className="bg-slate-400 ml-10 hover:bg-slate-500"
             onClick={() => {
               router.push("/pages/login");
             }}
