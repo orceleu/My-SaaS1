@@ -10,10 +10,7 @@ import { auth } from "@/app/firebase/config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/navigation";
 
-export default function Page() {
-  //const [createUserWithEmailAndPassword1]: any =
-  // useCreateUserWithEmailAndPassword(auth);S
-
+export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorText, setTextError] = useState("");
