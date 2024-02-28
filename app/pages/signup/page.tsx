@@ -26,7 +26,7 @@ export default function Register() {
       setPassword("");
       router.push("/pages/login");
     } catch (error) {
-      setTextError("your password length must be > 6 ");
+      setTextError("your password length must be up 6 ");
       console.error(error);
     }
   };
