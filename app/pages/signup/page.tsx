@@ -15,34 +15,34 @@ export default function page() {
   //const [createUserWithEmailAndPassword1]: any =
   // useCreateUserWithEmailAndPassword(auth);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorText, setTextError] = useState("");
+  const [Email, SetEmail] = useState("");
+  const [Password, SetPassword] = useState("");
+  const [ErrorText, SetTextError] = useState("");
   const router = useRouter();
 
   const handleSignUp = async (e: any) => {
     e.preventDefault();
-    console.log({ email, password });
+    console.log({ Email, Password });
     try {
-      const res = await createUserWithEmailAndPassword(auth, email, password);
+      const res = await createUserWithEmailAndPassword(auth, Email, Password);
       console.log({ res });
-      setEmail("");
-      setPassword("");
+      SetEmail("");
+      SetPassword("");
       router.push("/pages/login");
     } catch (error) {
-      setTextError("your password length must be > 6 ");
+      SetTextError("your password length must be > 6 ");
       console.error(error);
     }
   };
   const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     const email = e.target.value;
-    setEmail(email);
-    setTextError("");
+    SetEmail(email);
+    SetTextError("");
   };
   const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     const password = e.target.value;
-    setPassword(password);
-    setTextError("");
+    SetPassword(password);
+    SetTextError("");
   };
 
   return (
@@ -55,7 +55,7 @@ export default function page() {
         <br />
         <br />
         <p className="ml-9 font-bold">Create your account</p>
-        <p className="ml-9 mt-5 text-sm text-red-800">{errorText}</p>
+        <p className="ml-9 mt-5 text-sm text-red-800">{ErrorText}</p>
         <form onSubmit={handleSignUp}>
           <div className="mx-10">
             <br />
@@ -65,7 +65,7 @@ export default function page() {
               <Input
                 type="email"
                 placeholder="Email"
-                value={email}
+                value={Email}
                 onChange={handleChangeEmail}
                 required
               />
@@ -75,7 +75,7 @@ export default function page() {
               <Input
                 type="password"
                 placeholder="password"
-                value={password}
+                value={Password}
                 onChange={handleChangePassword}
                 required
               />
