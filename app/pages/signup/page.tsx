@@ -6,43 +6,42 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card } from "@/components/ui/card";
 import { useState } from "react";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebase/config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/navigation";
 
-export default function page() {
+export default function Page() {
   //const [createUserWithEmailAndPassword1]: any =
-  // useCreateUserWithEmailAndPassword(auth);
+  // useCreateUserWithEmailAndPassword(auth);S
 
-  const [Email, SetEmail] = useState("");
-  const [Password, SetPassword] = useState("");
-  const [ErrorText, SetTextError] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorText, setTextError] = useState("");
   const router = useRouter();
 
   const handleSignUp = async (e: any) => {
     e.preventDefault();
-    console.log({ Email, Password });
+    console.log({ email, password });
     try {
-      const res = await createUserWithEmailAndPassword(auth, Email, Password);
+      const res = await createUserWithEmailAndPassword(auth, email, password);
       console.log({ res });
-      SetEmail("");
-      SetPassword("");
+      setEmail("");
+      setPassword("");
       router.push("/pages/login");
     } catch (error) {
-      SetTextError("your password length must be > 6 ");
+      setTextError("your password length must be > 6 ");
       console.error(error);
     }
   };
   const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     const email = e.target.value;
-    SetEmail(email);
-    SetTextError("");
+    setEmail(email);
+    setTextError("");
   };
   const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     const password = e.target.value;
-    SetPassword(password);
-    SetTextError("");
+    setPassword(password);
+    setTextError("");
   };
 
   return (
@@ -55,7 +54,7 @@ export default function page() {
         <br />
         <br />
         <p className="ml-9 font-bold">Create your account</p>
-        <p className="ml-9 mt-5 text-sm text-red-800">{ErrorText}</p>
+        <p className="ml-9 mt-5 text-sm text-red-800">{errorText}</p>
         <form onSubmit={handleSignUp}>
           <div className="mx-10">
             <br />
@@ -65,7 +64,7 @@ export default function page() {
               <Input
                 type="email"
                 placeholder="Email"
-                value={Email}
+                value={email}
                 onChange={handleChangeEmail}
                 required
               />
@@ -75,7 +74,7 @@ export default function page() {
               <Input
                 type="password"
                 placeholder="password"
-                value={Password}
+                value={password}
                 onChange={handleChangePassword}
                 required
               />
