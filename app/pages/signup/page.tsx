@@ -1,11 +1,50 @@
+"use client";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card } from "@/components/ui/card";
+import { useState } from "react";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth } from "@/app/firebase/config";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "next/navigation";
 
 export default function page() {
+  //const [createUserWithEmailAndPassword1]: any =
+  // useCreateUserWithEmailAndPassword(auth);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorText, setTextError] = useState("");
+  const router = useRouter();
+
+  const handleSignUp = async (e: any) => {
+    e.preventDefault();
+    console.log({ email, password });
+    try {
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+      console.log({ res });
+      setEmail("");
+      setPassword("");
+      router.push("/pages/login");
+    } catch (error) {
+      setTextError("your password length must be > 6 ");
+      console.error(error);
+    }
+  };
+  const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const email = e.target.value;
+    setEmail(email);
+    setTextError("");
+  };
+  const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const password = e.target.value;
+    setPassword(password);
+    setTextError("");
+  };
+
   return (
     <>
       <br />
@@ -16,34 +55,50 @@ export default function page() {
         <br />
         <br />
         <p className="ml-10 font-bold">Create your account</p>
-        <form>
+        <p className="ml-10 mt-5 text-sm text-red-800">{errorText}</p>
+        <form onSubmit={handleSignUp}>
           <div className="mx-10">
             <br />
             <div className="mb-5">
               <Label htmlFor="email">Your email address</Label>
 
-              <Input type="email" placeholder="Email" required />
+              <Input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={handleChangeEmail}
+                required
+              />
             </div>
             <div className="mb-5">
               <Label htmlFor="password">Your password</Label>
-              <Input type="password" placeholder="password" required />
+              <Input
+                type="password"
+                placeholder="password"
+                value={password}
+                onChange={handleChangePassword}
+                required
+              />
             </div>
             <div className="flex items-center space-x-2 mb-5">
               <Checkbox id="terms" />
               <Label htmlFor="terms">Accept terms and conditions</Label>
             </div>
             <Button
-              type="submit"
               className="bg-emerald-700 hover:bg-emerald-800"
+              type="submit"
             >
               Register
             </Button>
           </div>
         </form>
+
         <br />
         <br />
         <br />
       </Card>
+      <br />
+      <br />
     </>
   );
 }

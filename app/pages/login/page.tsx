@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -44,6 +45,8 @@ export default function Login() {
         <br />
         <br />
       </Card>
+      <br />
+      <br />
     </>
   );
 }

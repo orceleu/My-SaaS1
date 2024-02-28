@@ -63,6 +63,15 @@ export default function NavBar() {
           </Avatar>
         </div>
         <div className="md:hidden">
+          <Button
+            className="bg-emerald-700 mr-5 hover:bg-emerald-800"
+            onClick={() => {
+              router.push("/pages/login");
+            }}
+          >
+            Login
+          </Button>
+
           <button
             onClick={toggleMenu}
             className="text-black hover:text-emerald-700"
@@ -101,19 +110,11 @@ export default function NavBar() {
           </a>
 
           <a
-            href="/signup"
+            href="/pages/signup"
             className="text-emerald-700 ml-5 underline hover:text-emerald-800 "
           >
             sign up
           </a>
-          <Button
-            className="bg-emerald-700 ml-10 hover:bg-emerald-800"
-            onClick={() => {
-              router.push("/pages/login");
-            }}
-          >
-            Login
-          </Button>
         </div>
       )}
     </header>

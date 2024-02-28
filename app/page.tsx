@@ -84,7 +84,7 @@ export default function Home() {
   ];
   return (
     <main>
-      <div className="bg-emerald-50">
+      <div className="bg-emerald-50 left-0 right-0">
         <div>
           <br />
           <br />
@@ -92,35 +92,45 @@ export default function Home() {
           <br />
           <br />
           <br />
-          <p className="text-center font-bold     text-lg md:text-xl lg:text-2xl xl:text-3xl">
-            <span className="text-blue-500">Update</span> Your skill in tech
+          <p className="text-center font-bold  text-lg md:text-xl lg:text-2xl xl:text-3xl">
+            <span className="text-blue-500">Update/</span>
+            <span className="text-blue-600">Learn</span> skill in tech.
           </p>
-          <p className="text-center text-md md:text-xl lg:text-2xl xl:text-2xl font-semibold mt-5">
-            save time with AI optimized engine search video & increase your
-            concentration
+          <p className="text-center text-md md:text-xl lg:text-2xl xl:text-2xl font-semibold mt-5 ml-10 mr-10">
+            Save time with AI optimized engine video search for:
+            <span className="text-blue-700">electronic</span>,
+            <span className="text-cyan-700">web development</span>,
+            <span className="text-gray-700">mobile development</span>,
+            <span className="text-yellow-700">designer</span>,
+            <span className="text-blue-900">database.</span>
           </p>
           <p className="mx-auto max-w-lg text-center  text-md md:text-xl lg:text-xl xl:text-2xl mt-5 font-semibold">
-            Text/video/AI assistant
+            Learn from Text/video/ with LLM assistant.
           </p>
           <p className="mx-auto max-w-lg text-center   text-md md:text-xl lg:text-xl xl:text-2xl mt-5 font-semibold ">
-            New High quality contents every month and recent video update within
-            9 month
+            New recent High quality contents selected and categorized every Day
+            by AI.
           </p>
           <p className="mx-auto max-w-lg text-center   text-md md:text-xl lg:text-xl xl:text-2xl  mt-5 font-semibold">
-            world of IT/tech knowlege
+            World of IT/tech knowlege.
           </p>
           <p className="mx-auto max-w-lg text-center   text-md md:text-xl lg:text-xl xl:text-2xl  mt-5  font-semibold">
-            more than <span className="text-red-500">1500 student </span>are
-            already menbers
+            More than <span className="text-red-500">1500 student </span>are
+            already members.
           </p>
         </div>
-        <div className="flex justify-center mt-8 ml-15 mr-15 ">
+        <p className="mx-auto max-w-lg text-center   text-md md:text-xl lg:text-xl xl:text-2xl  mt-5  font-semibold">
+          Focus on the essential & acheive your goal.
+        </p>
+        <div className="flex justify-center mt-8  ">
           <Button
             asChild
             size="lg"
             className="mb-10 bg-emerald-700 hover:bg-emerald-800"
           >
-            <Link href="pages/signup">Get started</Link>
+            <Link href="pages/signup" className="font-semibold">
+              Get started
+            </Link>
           </Button>
         </div>
         <Carousel
@@ -155,6 +165,9 @@ export default function Home() {
         </div>
         <br />
       </div>
+      <div className="flex justify-center ml-5 mr-5">
+        <Image src={imgcomp} alt="" width={700} height={600} />
+      </div>
 
       <div className=" flex justify-center">
         <Tabs defaultValue="account" className="w-auto ml-1 mr-1 mt-7">
@@ -163,13 +176,12 @@ export default function Home() {
             <TabsTrigger value="password">DOC</TabsTrigger>
           </TabsList>
           <TabsContent value="account">{divVideo()}</TabsContent>
-          <TabsContent
-            value="password"
-            className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
-          >
-            {divCardText()}
-          </TabsContent>
+          <TabsContent value="password">{divCardText()}</TabsContent>
         </Tabs>
+      </div>
+
+      <div className="flex justify-center mt-4">
+        <Button variant="outline">and more...</Button>
       </div>
 
       <FloatinButton />
@@ -178,28 +190,34 @@ export default function Home() {
         <p className="text-3xl font-semibold mt-10 text-center">
           For who is this?
         </p>
-        <ul className="text-lg font-thin text-center">
-          <li>student</li>
-          <li>self learner</li>
-          <li> etc</li>
-          <li>etc</li>
-          <li>etc</li>
+        <Separator className="my-4" />
+        <ul className="text-lg font-thin text-center mt-5">
+          <li>Student</li>
+          <li>Self learner</li>
+          <li> Beginner</li>
+          <Separator className="my-4" />
+
+          <li className="underline">Domain</li>
+          <li>Electronic</li>
+          <li>Web development</li>
+          <li>Mobile development</li>
+          <li>Designer</li>
+          <li>Database</li>
         </ul>
       </div>
       <Card className="mx-auto max-w-sm mt-9">
         <p className="text-3xl font-semibold mt-10 text-center text-emerald-700">
-          Pricing
+          Pricing <span className="text-sm">/one plan</span>
         </p>
-        <p className=" font-thin text-md text-center text-fuchsia-700">
-          8$/month
+        <p className=" font-thin text-md text-center text-fuchsia-700 mt-1">
+          500$/month
         </p>
         <Separator className="my-4" />
-        <ul className="text-lg font-thin text-center">
+        <ul className="text-lg font-thin text-center mb-4">
           <li>*unlimided access</li>
           <li>*AI tools</li>
           <li> *take note</li>
-          <li>etc</li>
-          <li>etc</li>
+          <li>*High quality content</li>
         </ul>
         <div className="flex justify-center">
           <Button asChild className="bg-emerald-700">
@@ -289,19 +307,30 @@ export default function Home() {
             </Link>
           </div>
         </footer>
+        <br />
+        <br />
       </div>
     </main>
   );
 
   function divCardText() {
-    return textCard.map((txt) => (
-      <Card key={txt.id} className="ml-1 mr-1">
-        <CardDescription>{txt.desc}</CardDescription>
-        <CardFooter>
-          <Button className="bg-emerald-700">Learn more</Button>
-        </CardFooter>
-      </Card>
-    ));
+    return (
+      <>
+        <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {textCard.map((txt) => (
+            <Card key={txt.id}>
+              <CardHeader>
+                <Image src={imgcomp2} alt="" />
+                <CardDescription>{txt.desc}</CardDescription>
+              </CardHeader>
+              <CardFooter>
+                <Button className="bg-emerald-700">Learn more</Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+      </>
+    );
   }
 
   function divVideo() {
