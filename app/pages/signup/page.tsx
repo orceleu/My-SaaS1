@@ -54,8 +54,8 @@ export default function page() {
       <Card className="max-w-sm  mx-auto shadow-md ">
         <br />
         <br />
-        <p className="ml-10 font-bold">Create your account</p>
-        <p className="ml-10 mt-5 text-sm text-red-800">{errorText}</p>
+        <p className="ml-9 font-bold">Create your account</p>
+        <p className="ml-9 mt-5 text-sm text-red-800">{errorText}</p>
         <form onSubmit={handleSignUp}>
           <div className="mx-10">
             <br />
